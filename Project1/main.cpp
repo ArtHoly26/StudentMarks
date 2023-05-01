@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <string>
 #include <vector>
 #include <map>
@@ -12,11 +12,11 @@ void addData()
 	ofstream add;
 	string newData;
 	add.open(path, ofstream::app|ofstream::ate);
-	if (!add.is_open()) cout << "Ошибка открытия файла";
+	if (!add.is_open()) cout << "РћС€РёР±РєР° РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р°";
 	else
 	{
 		cin.get();
-		cout << "Введите данные: <имя студента> - <список оценок>" << endl;
+		cout << "Р’РІРµРґРёС‚Рµ РґР°РЅРЅС‹Рµ: <РёРјСЏ СЃС‚СѓРґРµРЅС‚Р°> - <СЃРїРёСЃРѕРє РѕС†РµРЅРѕРє>" << endl;
 		getline(cin, newData);
 		add << newData<<endl;
 	}
@@ -28,7 +28,7 @@ void readData()
 	string msg;
 	ifstream read;
 	read.open(path,iostream::in);
-	if (!read.is_open()) cout << "Ошибка чтения файла";
+	if (!read.is_open()) cout << "РћС€РёР±РєР° С‡С‚РµРЅРёСЏ С„Р°Р№Р»Р°";
 	else
 	{
 		while (!read.eof())
@@ -45,7 +45,7 @@ void deleteData()
 	string path = "Data.txt";
 	ofstream destroy(path);
 	destroy.open(path, ofstream::out | ofstream::trunc);
-	if(!destroy.is_open())cout << "Ошибка удаления файла";
+	if(!destroy.is_open())cout << "РћС€РёР±РєР° СѓРґР°Р»РµРЅРёСЏ С„Р°Р№Р»Р°";
 	destroy.close();
 }
 void searchData()
@@ -57,10 +57,10 @@ void searchData()
 	string dataSearch;
 	ifstream search;
 	search.open(path, iostream::in);
-	if (!search.is_open()) cout << "Ошибка открытия файла";
+	if (!search.is_open()) cout << "РћС€РёР±РєР° РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р°";
 	else
 	{
-		cout << "Ввведите имя студента: " << endl;
+		cout << "Р’РІРІРµРґРёС‚Рµ РёРјСЏ СЃС‚СѓРґРµРЅС‚Р°: " << endl;
 		cin >> dataSearch;
 		while (search >> msg >> value)
 		{
@@ -73,7 +73,7 @@ void searchData()
 	}
 	search.close();
 }
-map<string,string> importData()  //запись данных в программу
+map<string,string> importData()  //Р·Р°РїРёСЃСЊ РґР°РЅРЅС‹С… РІ РїСЂРѕРіСЂР°РјРјСѓ
 {
 	string path = "Data.txt";
 	map<string, string> data;
@@ -81,8 +81,8 @@ map<string,string> importData()  //запись данных в программу
 	string value;
 	ifstream importData;
 	importData.open(path, iostream::in);
-	if (!importData.is_open()) cout << "Ошибка импорта данных";
-	else if (importData.peek() == EOF) cout << "Этот файл пустой" << endl;
+	if (!importData.is_open()) cout << "РћС€РёР±РєР° РёРјРїРѕСЂС‚Р° РґР°РЅРЅС‹С…";
+	else if (importData.peek() == EOF) cout << "Р­С‚РѕС‚ С„Р°Р№Р» РїСѓСЃС‚РѕР№" << endl;
 	else
 	{
 		while (importData>>msg>>value)
@@ -102,7 +102,7 @@ void exportData(map<string,string> &studentData2)
 	string path = "Data.txt";
 	ofstream exportData;
 	exportData.open(path, ofstream::app | ofstream::ate);
-	if (!exportData.is_open()) cout << "Ошибка открытия файла";
+	if (!exportData.is_open()) cout << "РћС€РёР±РєР° РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р°";
 	else
 	{
 		for (auto it = studentData2.begin(); it != studentData2.end(); ++it)
@@ -128,14 +128,14 @@ int main()
 	bool flag = false;
 	do
 	{
-		cout << "Выберите необходимое действие" << endl
-			<< "1 - Чтение данных" << endl
-			<< "2 - Добавление данных" << endl
-			<< "3 - Удаление данных" << endl
-			<< "4 - Поиск данных" << endl
-			<< "5 - Экспорт данных"<<endl
-			<< "6 - Импорт данных"<<endl
-			<< "7 - Выход" << endl;
+		cout << "Р’С‹Р±РµСЂРёС‚Рµ РЅРµРѕР±С…РѕРґРёРјРѕРµ РґРµР№СЃС‚РІРёРµ" << endl
+			<< "1 - Р§С‚РµРЅРёРµ РґР°РЅРЅС‹С…" << endl
+			<< "2 - Р”РѕР±Р°РІР»РµРЅРёРµ РґР°РЅРЅС‹С…" << endl
+			<< "3 - РЈРґР°Р»РµРЅРёРµ РґР°РЅРЅС‹С…" << endl
+			<< "4 - РџРѕРёСЃРє РґР°РЅРЅС‹С…" << endl
+			<< "5 - Р­РєСЃРїРѕСЂС‚ РґР°РЅРЅС‹С…"<<endl
+			<< "6 - РРјРїРѕСЂС‚ РґР°РЅРЅС‹С…"<<endl
+			<< "7 - Р’С‹С…РѕРґ" << endl;
 		cin >> choise;
 		system("pause");
 		system("cls");
@@ -175,7 +175,7 @@ int main()
 			flag = true;
 			break;
 		default:
-			cout << "Ошибка! Такой операции не существует!" << endl;
+			cout << "РћС€РёР±РєР°! РўР°РєРѕР№ РѕРїРµСЂР°С†РёРё РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!" << endl;
 			break;
 		}
 	} while (!flag);
